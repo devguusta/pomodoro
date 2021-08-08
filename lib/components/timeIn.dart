@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class TimeIn extends StatelessWidget {
  final int value;
  final String title;
+ final void Function()? inc;
+ final void Function()? dec;
   const TimeIn({
     Key? key,
     required this.value,
     required this.title,
+    this.inc,
+    this.dec,
   }) : super(key: key);
 
   @override
@@ -25,7 +29,7 @@ class TimeIn extends StatelessWidget {
               padding: EdgeInsets.all(15),
               primary: Colors.red,
             ),
-            onPressed: (){},
+            onPressed: this.dec,
             child: Icon(Icons.arrow_downward, color: Colors.white)
           ),
            Text('${this.value} min', style: TextStyle(fontSize: 18,)),
@@ -35,7 +39,7 @@ class TimeIn extends StatelessWidget {
               padding: EdgeInsets.all(15),
               primary: Colors.red,
             ),
-            onPressed: (){},
+            onPressed: this.inc,
             child: Icon(Icons.arrow_upward, color: Colors.white)
           ),
           ],

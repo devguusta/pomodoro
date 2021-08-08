@@ -1,9 +1,9 @@
 import 'package:mobx/mobx.dart';
-part 'pomodo.store.g.dart';
+part 'pomodoro.store.g.dart';
 
-class Pomodoro = _PomodoroBase with _$Pomodoro;
+class PomodoroStore = _PomodoroStoreBase with _$PomodoroStore;
 
-abstract class _PomodoroBase with Store {
+abstract class _PomodoroStoreBase with Store {
   @observable
   int timeWork = 2;
 
