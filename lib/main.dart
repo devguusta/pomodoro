@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mobx1/pages/pomodoro.dart';
 import 'package:mobx1/store/contador.store.dart';
 
 void main() {
@@ -24,48 +25,41 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: Pomodoro(),
     );
   }
 }
 
-  final store = ContadorStore();
+//   final store = ContadorStore();
+// class HomePage extends StatelessWidget {
+//   const HomePage({Key? key}) : super(key: key);
 
-
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-   return Scaffold(
-      appBar: AppBar(
-       
-        title: Text('Contador'),
-      ),
-      body: Center(
-        
-        child: Column(
-         
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Observer(builder: (_) =>  Text(
-              '${store.count}',
-              style: Theme.of(context).textTheme.headline4,
-            ), 
-            ),
-           
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: store.increment ,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//    return Scaffold(
+//       appBar: AppBar(   
+//         title: Text('Contador'),
+//       ),
+//       body: Center(
+//         child: Column(    
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             Text(
+//               'You have pushed the button this many times:',
+//             ),
+//             Observer(builder: (_) =>  Text(
+//               '${store.count}',
+//               style: Theme.of(context).textTheme.headline4,
+//             ), 
+//             ),          
+//           ],
+//         ),
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: store.increment ,
+//         tooltip: 'Increment',
+//         child: Icon(Icons.add),
+//       ), // This trailing comma makes auto-formatting nicer for build methods.
+//     );
+//   }
+// }
