@@ -9,6 +9,51 @@ part of 'pomodoro.store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$PomodoroStore on _PomodoroStoreBase, Store {
+  final _$initializeAtom = Atom(name: '_PomodoroStoreBase.initialize');
+
+  @override
+  bool get initialize {
+    _$initializeAtom.reportRead();
+    return super.initialize;
+  }
+
+  @override
+  set initialize(bool value) {
+    _$initializeAtom.reportWrite(value, super.initialize, () {
+      super.initialize = value;
+    });
+  }
+
+  final _$minutesAtom = Atom(name: '_PomodoroStoreBase.minutes');
+
+  @override
+  int get minutes {
+    _$minutesAtom.reportRead();
+    return super.minutes;
+  }
+
+  @override
+  set minutes(int value) {
+    _$minutesAtom.reportWrite(value, super.minutes, () {
+      super.minutes = value;
+    });
+  }
+
+  final _$secondsAtom = Atom(name: '_PomodoroStoreBase.seconds');
+
+  @override
+  int get seconds {
+    _$secondsAtom.reportRead();
+    return super.seconds;
+  }
+
+  @override
+  set seconds(int value) {
+    _$secondsAtom.reportWrite(value, super.seconds, () {
+      super.seconds = value;
+    });
+  }
+
   final _$timeWorkAtom = Atom(name: '_PomodoroStoreBase.timeWork');
 
   @override
@@ -36,6 +81,21 @@ mixin _$PomodoroStore on _PomodoroStoreBase, Store {
   set timeRest(int value) {
     _$timeRestAtom.reportWrite(value, super.timeRest, () {
       super.timeRest = value;
+    });
+  }
+
+  final _$typeIntervalAtom = Atom(name: '_PomodoroStoreBase.typeInterval');
+
+  @override
+  TypeInterval get typeInterval {
+    _$typeIntervalAtom.reportRead();
+    return super.typeInterval;
+  }
+
+  @override
+  set typeInterval(TypeInterval value) {
+    _$typeIntervalAtom.reportWrite(value, super.typeInterval, () {
+      super.typeInterval = value;
     });
   }
 
@@ -87,10 +147,47 @@ mixin _$PomodoroStore on _PomodoroStoreBase, Store {
   }
 
   @override
+  void start() {
+    final _$actionInfo = _$_PomodoroStoreBaseActionController.startAction(
+        name: '_PomodoroStoreBase.start');
+    try {
+      return super.start();
+    } finally {
+      _$_PomodoroStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void stop() {
+    final _$actionInfo = _$_PomodoroStoreBaseActionController.startAction(
+        name: '_PomodoroStoreBase.stop');
+    try {
+      return super.stop();
+    } finally {
+      _$_PomodoroStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void restarted() {
+    final _$actionInfo = _$_PomodoroStoreBaseActionController.startAction(
+        name: '_PomodoroStoreBase.restarted');
+    try {
+      return super.restarted();
+    } finally {
+      _$_PomodoroStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
+initialize: ${initialize},
+minutes: ${minutes},
+seconds: ${seconds},
 timeWork: ${timeWork},
-timeRest: ${timeRest}
+timeRest: ${timeRest},
+typeInterval: ${typeInterval}
     ''';
   }
 }

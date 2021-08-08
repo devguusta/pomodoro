@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 class TimeButton extends StatelessWidget {
   final String text;
   final IconData icon;
+  final void Function()? click;
   const TimeButton({
     Key? key,
     required this.text,
     required this.icon,
+    this.click,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         primary: Colors.black,
@@ -22,7 +25,7 @@ class TimeButton extends StatelessWidget {
           fontSize: 25,
         ),
       ),
-      onPressed: (){},
+      onPressed: click,
       child: Row(
         children: [
           Padding(

@@ -6,6 +6,7 @@ import 'package:mobx1/store/pomodoro.store.dart';
 import 'package:provider/provider.dart';
 
 
+
 class Pomodoro extends StatelessWidget {
   const Pomodoro({Key? key}) : super(key: key);
 
@@ -26,14 +27,14 @@ class Pomodoro extends StatelessWidget {
                   TimeIn(
                     value: store.timeWork,
                     title: 'Trabalho',
-                    inc: store.incrementTimeWork,
-                    dec: store.decrementTimeWork,
+                    inc: store.initialize && store.isWorking() ? null : store.incrementTimeWork,
+                    dec: store.initialize && store.isWorking() ? null : store.decrementTimeWork,
                   ),
                   TimeIn(
                     value: store.timeRest,
                     title: 'Descanso',
-                    inc: store.incrementTimeRest,
-                    dec: store.decrementTimeRest,
+                    inc: store.initialize && store.isResting() ? null : store.incrementTimeRest,
+                    dec: store.initialize && store.isResting() ? null : store.decrementTimeRest,
                   ),
                 ],
               );
